@@ -10,8 +10,8 @@ class ModelDatabaseRouter(object):
 
     Add recognized model option to django
     import django.db.models.options as options
-    options.DEFAULT_NAMES = options.DEFAULT_NAMES + ('in_db',)
-
+    if 'in_db' not in options.DEFAULT_NAMES:
+        options.DEFAULT_NAMES = options.DEFAULT_NAMES + ('in_db',)
 
     """
 
